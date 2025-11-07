@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Way of the Ñembotavy - Una Aventura Nocturna</title>
+    <meta name="description" content="Way of the Ñembotavy es un videojuego de aventura que sigue la historia de Fio, una adolescente que debe recuperar su mochila en una noche llena de desafíos.">
+    <meta name="keywords" content="videojuego, aventura, Fio, Ñembotavy, juego indie, personajes únicos, puzzles, exploración">
+    <meta property="og:title" content="Way of the Ñembotavy - Una Aventura Nocturna">
+    <meta property="og:description" content="Únete a Fio en su aventura nocturna para recuperar su mochila en un mundo lleno de personajes inolvidables y desafíos emocionantes.">
+    <meta property="og:image" content="images/imagenes/Fio.jpg">
+    <meta property="og:url" content="https://wayofthenembotavy.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/imagenes/Fio.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --primary: #2A75B3;
+            --secondary: #3A86FF;
+            --accent: #4CC9F0;
+            --dark: #0A192F;
+            --darker: #07152A;
+            --light: #E6F1FF;
+            --text: #CCD6F6;
+            --text-light: #8892B0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--darker);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--light);
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+        
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 0 auto 50px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">Way of the Ñembotavy</a>
+                <div class="nav-links" id="navLinks">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="#historia" class="nav-link">Historia</a>
+                    <a href="#personajes" class="nav-link">Personajes</a>
+                    <a href="#gameplay" class="nav-link">Gameplay</a>
+                    <a href="#trailer" class="nav-link">Tráiler</a>
+                    <a href="#" class="btn btn-primary" id="jugarAhoraBtn">¡Jugar Ahora!</a>
+                </div>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Way of the <span>Ñembotavy</span></h1>
+                <p class="hero-subtitle">Una aventura nocturna que pondrá a prueba tu ingenio y valentía</p>
+                <div class="hero-buttons">
+                    <a href="#trailer" class="btn btn-outline">Ver Tráiler</a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-moon"></i>
+                        <span>Aventura Nocturna</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>Puzles Desafiantes</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <span>Personajes Inolvidables</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/imagenes/Fio.jpg" alt="Fio, la protagonista" class="hero-character">
+            </div>
+        </div>
+        <div class="scroll-down" style="position: absolute; bottom: 30px; left: 0; right: 0; text-align: center; transform: translateX(0);">
+            <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 8px;">
+                <span>Desliza para descubrir</span>
+                <i class="fas fa-chevron-down" style="animation: bounce 2s infinite; margin-top: 5px;"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Modal -->
+    <div id="comingSoonModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: 9999; overflow: auto;">
+        <div style="position: relative; min-height: 100%; display: flex; justify-content: center; align-items: center; padding: 20px;">
+            <div class="modal-content" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 2.5rem; border-radius: 15px; max-width: 90%; width: 500px; text-align: center; position: relative; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.15);">
+                <span class="close-modal" style="position: absolute; top: 15px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; transition: color 0.3s ease; line-height: 1;">&times;</span>
+                <div style="margin-bottom: 1.5rem;">
+                    <i class="fas fa-gamepad" style="font-size: 3.5rem; color: #4CC9F0; margin-bottom: 1.2rem; display: inline-block;"></i>
+                    <h2 style="color: #fff; margin-bottom: 1rem; font-size: 2rem; font-weight: 700;">¡Próximamente Disponible!</h2>
+                    <p style="color: #b8c1ec; margin-bottom: 1.5rem; line-height: 1.7; font-size: 1.1rem;">Estamos trabajando duro para traerte una experiencia increíble. El juego estará disponible muy pronto.</p>
+                    <p style="color: #e94560; font-weight: 600; margin-bottom: 1.5rem; font-size: 1.1rem;"><i class="fas fa-clock" style="margin-right: 8px;"></i>¡No te lo pierdas!</p>
+                </div>
+                <div class="progress-container" style="background: rgba(255, 255, 255, 0.1); height: 8px; border-radius: 4px; margin: 2rem 0; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
+                    <div id="progressBar" class="progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #4CC9F0, #3A86FF); transition: width 0.1s linear;"></div>
+                </div>
+                <div class="countdown" style="color: #b8c1ec; font-size: 1rem; font-weight: 500;">Cierre automático en <span id="countdown" style="color: #fff; font-weight: 700; font-size: 1.1rem;">5</span> segundos</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+    <!-- Historia -->
+    <section id="historia" class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">La Historia</span>
+                <h2 class="section-title">Una Noche Inolvidable</h2>
+            </div>
+            <div class="story-content">
+                <div class="story-text">
+                    <div class="story-paragraph">
+                        <h3>El Comienzo de la Aventura</h3>
+                        <p>Fio es una adolescente olvidadiza que un día deja su mochila en la escuela justo antes de un examen importante. Sin sus apuntes, se despierta a las 3 a.m. decidida a recuperarla a toda costa.</p>
+                    </div>
+                    <div class="story-paragraph">
+                        <h3>El Viaje Nocturno</h3>
+                        <p>Lo que comienza como una simple misión se convierte en una aventura inesperada, donde cada esquina esconde un nuevo desafío y cada personaje tiene algo que enseñarle sobre sí misma.</p>
+                    </div>
+                            <h3>El Descubrimiento</h3>
+                            <p>A medida que avanza, Fio descubre que la escuela guarda secretos que van más allá de lo imaginable. Cada personaje que encuentra tiene algo que enseñarle, y cada desafío superado la acerca no solo a su mochila, sino a un entendimiento más profundo de sí misma.</p>
+                        </div>
+                    </div>
+                    <div class="historia-cta">
+                        <p>¿Estás listo para unirte a Fio en esta aventura nocturna?</p>
+                        <a href="#descargar" class="btn btn-primary">¡Jugar Ahora!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personajes -->
+    <section id="personajes" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Conoce a los personajes</span>
+                <h2 class="section-title">Personajes Inolvidables</h2>
+                <p class="section-description">Descubre a los peculiares personajes que encontrarás en esta aventura nocturna</p>
+            </div>
+            <div class="personajes-grid">
+                <div class="personaje-card fadeInUp" style="transition-delay: 0.1s">
+                    <div class="personaje-img">
+                        <img src="images/imagenes/FIo.jpg" alt="Fio">
+                    </div>
+                    <div class="personaje-content">
+                        <h3>Fio</h3>
+                        <div class="personaje-rol">Protagonista</div>
+                        <p>Valiente, curiosa y un poco olvidadiza, Fio es una adolescente que se embarca en una misión para recuperar su mochila en medio de la noche.</p>
+                        <div class="personaje-habilidades">
+                            <span>Valentía</span>
+                            <span>Ingenio</span>
+                            <span>Determinación</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="personaje-card fadeInUp" style="transition-delay: 0.2s">
+                    <div class="personaje-img">
+                        <img src="images/imagenes/enojao.jpg" alt="El Portero">
+                    </div>
+                    <div class="personaje-content">
+                        <h3>El Portero</h3>
+                        <div class="personaje-rol">Guardián</div>
+                        <p>Hombre misterioso, un poco terco y enojón que vigila la entrada de la escuela. No le gustan las visitas inesperadas a medianoche.</p>
+                        <div class="personaje-habilidades">
+                            <span>Vigilancia</span>
+                            <span>Fuerza</span>
+                            <span>Lealtad</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="personaje-card fadeInUp" style="transition-delay: 0.3s">
+                    <div class="personaje-img">
+                        <img src="images/imagenes/Ilustración.jpg" alt="Doña Tere">
+                    </div>
+                    <div class="personaje-content">
+                        <h3>Doña Tere</h3>
+                        <div class="personaje-rol">Aliada</div>
+                        <p>La cocinera sonámbula, siempre medio dormida pero con un gran corazón. Conoce todos los secretos de la escuela.</p>
+                        <div class="personaje-habilidades">
+                            <span>Sabiduría</span>
+                            <span>Amabilidad</span>
+                            <span>Misterio</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="personaje-card fadeInUp" style="transition-delay: 0.4s">
+                    <div class="personaje-img">
+                        <img src="images/imagenes/tipo_turbio.jpg" alt="El Tipo Turbio">
+                    </div>
+                    <div class="personaje-content">
+                        <h3>El Tipo Turbio</h3>
+                        <div class="personaje-rol">Antagonista</div>
+                        <p>Crea un ambiente denso y desconcertante en los pasillos de la escuela. ¿Amigo o enemigo? Su verdadero propósito es un misterio.</p>
+                        <div class="personaje-habilidades">
+                            <span>Misterio</span>
+                            <span>Astucia</span>
+                            <span>Engaño</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trailer -->
+    <section id="trailer" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Mira el video</span>
+                <h2 class="section-title">Tráiler Oficial</h2>
+                <p class="section-description">Descubre el mundo de Way of the Ñembotavy en acción</p>
+            </div>
+            <div class="video-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Vídeo de ejemplo" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+                        <p>Tu navegador no soporta el elemento iframe. Por favor, actualiza tu navegador o usa uno compatible.</p>
+                    </iframe>
+                </div>
+            </div>
+            </div>
+            <div class="footer-contact" style="text-align: center; width: 100%; margin: 0 auto; max-width: 600px; padding: 30px 0;">
+                <h3 style="font-size: 1.8rem; color: #fff; margin-bottom: 20px; position: relative; display: inline-block;">
+                    <span style="position: relative;">
+                        Contáctanos
+                        <span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, #3A86FF, #4CC9F0);"></span>
+                    </span>
+                </h3>
+                
+                <div style="background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 12px; margin: 20px 0;">
+                    <div class="footer-email" style="margin-bottom: 20px;">
+                        <div style="font-size: 1.1rem; color: #E6F1FF; margin-bottom: 15px;">
+                            <i class="fas fa-envelope" style="color: #4CC9F0; margin-right: 10px;"></i>
+                            <span>¿Tienes preguntas? Escríbenos a:</span>
+                        </div>
+                        <a href="mailto:mathiaspereira40@icloud.com" style="display: inline-block; background: rgba(76, 201, 240, 0.1); padding: 10px 20px; border-radius: 50px; color: #4CC9F0; text-decoration: none; font-weight: 500; border: 1px solid rgba(76, 201, 240, 0.2); transition: all 0.3s ease;">
+                            mathiaspereira40@icloud.com
+                        </a>
+                    </div>
+                    
+                    <div class="footer-social" style="margin-top: 30px;">
+                        <p style="color: #8892B0; margin-bottom: 15px; font-size: 1rem;">Síguenos en nuestras redes sociales</p>
+                        <div style="display: flex; justify-content: center; gap: 15px;">
+                            <a href="#" class="social-icon" aria-label="Twitter" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255, 255, 255, 0.05); border-radius: 50%; color: #fff; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255, 255, 255, 0.05); border-radius: 50%; color: #fff; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Discord" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255, 255, 255, 0.05); border-radius: 50%; color: #fff; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=TgDYNtJFm78" target="_blank" class="social-icon" aria-label="YouTube" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255, 255, 255, 0.05); border-radius: 50%; color: #fff; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Inicializar LazyLoad
+        var lazyLoadInstance = new LazyLoad({
+            elements_selector: ".lazy",
+            threshold: 100,
+            callback_loaded: function(el) {
+                el.classList.add('lazy-loaded');
+            }
+        });
+        
+        // Animaciones con GSAP
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animación de elementos al hacer scroll
+            gsap.utils.toArray('.fadeInUp').forEach((section, i) => {
+                gsap.from(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.8,
+                    delay: i * 0.1
+                });
+            });
+            
+            // Efecto de máquina de escribir
+            const title = document.querySelector('.typewriter');
+            if (title) {
+                const text = title.textContent;
+                title.textContent = '';
+                
+                let i = 0;
+                const speed = 100;
+                
+                function typeWriter() {
+                    if (i < text.length) {
+                        title.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    } else {
+                        title.classList.add('typewriter-done');
+                    }
+                }
+                
+                setTimeout(typeWriter, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
